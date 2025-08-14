@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment   #deployment in kubernetes is a collection of multiple pods
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 5  #original name
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx  #common name
+    spec:
+      containers: 
+        - name: nginx-container
+          image: nginx:latest    
